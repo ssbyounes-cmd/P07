@@ -6,7 +6,8 @@ from typing import Any
 
 class EliteCard(Card, Combatable, Magical):
 
-    def __init__(self, name: str, cost: int, rarity: Rarity, attack_power: int, health: int, defense: int, available_mana: int):
+    def __init__(self, name: str, cost: int, rarity: Rarity, attack_power: int,
+                 health: int, defense: int, available_mana: int):
         super().__init__(name, cost, rarity)
         self.attack_power = attack_power
         self.health = health
@@ -23,7 +24,8 @@ class EliteCard(Card, Combatable, Magical):
                 "effect": "Creature summoned to battlefield"
             }
         else:
-            return {"card_not_played": self.name, "reason": "Not enough mana to play this card"}
+            return {"card_not_played": self.name,
+                    "reason": "Not enough mana to play this card"}
 
     def attack(self, target: Any) -> dict:
         return {
@@ -57,11 +59,13 @@ class EliteCard(Card, Combatable, Magical):
             return {
                 "caster": self.name,
                 "spell": spell_name,
-                "targets": [target.name if hasattr(target, 'name') else str(target) for target in targets],
+                "targets": [target.name if hasattr(target, 'name') else
+                            str(target) for target in targets],
                 "mana_used": mana_cost
             }
         else:
-            return {"spell_not_cast": spell_name, "reason": "Not enough mana to cast this spell"}
+            return {"spell_not_cast": spell_name,
+                    "reason": "Not enough mana to cast this spell"}
 
     def channel_mana(self, amount: int) -> dict:
         self.available_mana += amount

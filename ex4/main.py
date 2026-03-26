@@ -5,8 +5,10 @@ from ex0.Card import Rarity
 if __name__ == "__main__":
     print("=== DataDeck Tournament Platform ===\n")
     print("Registering Tournament Cards...\n")
-    FireDragon = TournamentCard("Fire Dragon", 5, Rarity.LEGENDARY, attack_power=8, health=10, defense=3)
-    IceWizard = TournamentCard("Ice Wizard", 4, Rarity.RARE, attack_power=5, health=6, defense=2)
+    FireDragon = TournamentCard("Fire Dragon", 5, Rarity.LEGENDARY,
+                                attack_power=8, health=10, defense=3)
+    IceWizard = TournamentCard("Ice Wizard", 4, Rarity.RARE,
+                               attack_power=5, health=6, defense=2)
     Platform = TournamentPlatform()
     card1_id = Platform.register_card(FireDragon)
     card2_id = Platform.register_card(IceWizard)

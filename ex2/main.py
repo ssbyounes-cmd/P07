@@ -24,26 +24,6 @@ Elite_Card = {
     "available_mana": game_state["mana"]
 }
 
-# target_card = {
-#     "name": "Enemy Soldier",
-#     "cost": 2,
-#     "rarity": Rarity.COMMON.value,
-#     "attack_power": 2,
-#     "health": 3,
-#     "defense": 1,
-#     "available_mana": 5
-# }
-
-# target_card2 = {
-#     "name": "Enemy Archer",
-#     "cost": 3,
-#     "rarity": Rarity.RARE.value,
-#     "attack_power": 3,
-#     "health": 2,
-#     "defense": 1,
-#     "available_mana": 5
-# }
-
 
 if __name__ == "__main__":
     print("=== DataDeck Ability System ===\n")
@@ -67,8 +47,8 @@ if __name__ == "__main__":
         print("\nMagic phase:")
         target1 = MockTarget('Enemy1')
         target2 = MockTarget('Enemy2')
-        print(
-            f"Spell cast: {Ecard.cast_spell(spell_name='Fireball', targets=[target1, target2])}")
+        spell = Ecard.cast_spell('Fireball', [target1, target2])
+        print(f"Spell cast: {spell}")
         print(f"Mana channel: {Ecard.channel_mana(amount=3)}")
     else:
         print(f"Failed to play card: {play_result['reason']}")

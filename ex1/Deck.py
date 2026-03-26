@@ -44,10 +44,9 @@ class Deck():
             elif card_type == "Artifact":
                 res["artifacts"] += 1
             costs.append(card.cost)
-        
+
         if costs:
             avg = sum(costs) / len(costs)
             res["avg_cost"] = round(float(avg), 1)
-        
+
         return res
-        

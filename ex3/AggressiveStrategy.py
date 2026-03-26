@@ -5,14 +5,15 @@ from typing import Any
 
 
 class AggressiveStrategy(GameStrategy):
-
     def get_strategy_name(self) -> str:
         return "AggressiveStrategy"
 
     def prioritize_targets(self, available_targets: list) -> list:
         # Simple logic: Put "Enemy Player" at the front if they exist
-        prioritized = [target for target in available_targets if target.name == "Enemy Player"]
-        non_prioritized = [target for target in available_targets if target.name != "Enemy Player"]
+        prioritized = [target for target in available_targets
+                       if target.name == "Enemy Player"]
+        non_prioritized = [target for target in available_targets
+                           if target.name != "Enemy Player"]
         return prioritized + non_prioritized
 
     def execute_turn(self, hand: list, battlefield: list) -> dict:
@@ -24,19 +25,19 @@ class AggressiveStrategy(GameStrategy):
         creatures = list()
         others = list()
         for card in hand:
-            if type(card) == CreatureCard:
+            if isinstance(card, CreatureCard):
                 creatures.append(card)
             else:
                 others.append(card)
-                
+
         sorted_creatures = sorted(creatures, key=get_card_cost)
         sorted_others = sorted(others, key=get_card_cost)
         sorted_cards = sorted_creatures + sorted_others
 
         cards_played = []
         mana_used = 0
-        game_dict: dict[str, Any] = {"mana": 5}  # Mocked to match output simulation
-        damage_dealt = 0  # Placeholder for damage calculation logic
+        game_dict: dict[str, Any] = {"mana": 5}
+        damage_dealt = 0
 
         # Rule: Targets enemy creatures and player directly
         targets = self.prioritize_targets(battlefield)
@@ -48,9 +49,9 @@ class AggressiveStrategy(GameStrategy):
             if "card_played" in result:
                 cards_played.append(card.name)
                 mana_used += card.cost
-                if type(card) == CreatureCard:
+                if isinstance(card, CreatureCard):
                     damage_dealt += card.attack
-                elif type(card) == SpellCard:
+                elif isinstance(card, SpellCard):
                     damage_dealt += 3
                 else:
                     continue
