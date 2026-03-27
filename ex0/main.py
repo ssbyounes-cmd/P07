@@ -6,14 +6,14 @@ from typing import Any
 card_one: dict[str, Any] = {
     "name": "Fire Dragon",
     "cost": 5,
-    "rarity": Rarity.LEGENDARY.value,
+    "rarity": Rarity.LEGENDARY,
     "attack": 7,
     "health": 5
 }
 card_two: dict[str, Any] = {
     "name": "Goblin Warrior",
     "cost": 5,
-    "rarity": Rarity.COMMON.value,
+    "rarity": Rarity.COMMON,
     "attack": 4,
     "health": 10
 }

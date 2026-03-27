@@ -10,13 +10,13 @@ from typing import Any
 Spell: dict[str, Any] = {
     "name": "Lightning Bolt",
     "cost": 3,
-    "rarity": Rarity.RARE.value,
+    "rarity": Rarity.RARE,
     "effect_type": "Deal 3 damage to target"
 }
 Artifact: dict[str, Any] = {
     "name": "Mana Crystal",
     "cost": 2,
-    "rarity": Rarity.COMMON.value,
+    "rarity": Rarity.COMMON,
     "durability": 5,
     "effect": "Permanent: +1 mana per turn"
 }

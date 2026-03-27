@@ -9,7 +9,6 @@ class AggressiveStrategy(GameStrategy):
         return "AggressiveStrategy"
 
     def prioritize_targets(self, available_targets: list) -> list:
-        # Simple logic: Put "Enemy Player" at the front if they exist
         prioritized = [target for target in available_targets
                        if target.name == "Enemy Player"]
         non_prioritized = [target for target in available_targets
@@ -21,7 +20,7 @@ class AggressiveStrategy(GameStrategy):
         def get_card_cost(card):
             return card.cost
 
-        # Rule: Plays low-cost creatures first
+        # Plays low-cost creatures first
         creatures = list()
         others = list()
         for card in hand:
@@ -39,7 +38,7 @@ class AggressiveStrategy(GameStrategy):
         game_dict: dict[str, Any] = {"mana": 5}
         damage_dealt = 0
 
-        # Rule: Targets enemy creatures and player directly
+        # Targets enemy creatures and player directly
         targets = self.prioritize_targets(battlefield)
         primary_target = targets[0].name if targets else "No Target"
 
