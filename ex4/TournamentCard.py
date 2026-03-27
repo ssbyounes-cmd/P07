@@ -1,7 +1,6 @@
 from ex0.Card import Card, Rarity
 from ex2.Combatable import Combatable
 from ex4.Rankable import Rankable
-from typing import Any
 
 
 class TournamentCard(Card, Combatable, Rankable):
